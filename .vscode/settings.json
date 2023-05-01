@@ -8,5 +8,6 @@
 	"Lua.diagnostics.globals": ["playdate"],
 	"Lua.runtime.special": {
 		"import": "require"
-	}
+	},
+	"Lua.diagnostics.neededFileStatus": {"codestyle-check": "Any"}
 }
