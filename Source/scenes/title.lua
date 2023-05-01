@@ -9,7 +9,9 @@ local title = {}
 local WIDTH <const> = 400
 local HEIGHT <const> = 240
 
-function title:init()
+function title:init(scene_manager)
+	self.scene_manager = scene_manager
+
 	self.font = playdate.graphics.getSystemFont("bold")
 
 	self.text = "If the fish isn't hooked, you can't reel it in"
@@ -49,7 +51,7 @@ function title:update()
     self.text_position_y = math.min(self.text_position_y, self.text_start_position_y)
 
     if self.text_position_y + self.text_height < 0 then
-        print("Hello")
+        self.scene_manager:change_scene(self.scene_manager.scenes.game)
     end
 
     -- CRANK ALERT

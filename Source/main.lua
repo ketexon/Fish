@@ -1,14 +1,13 @@
-local scenes = import "scenes"
+local scene_manager = import "scene_manager"
 
-local current_scene = scenes.title
-current_scene:init()
+scene_manager:change_scene(scene_manager.scenes.title)
 
 function playdate.cranked(change, acceleratedChange)
-    if current_scene.cranked then
-        current_scene:cranked(change, acceleratedChange)
+    if scene_manager.current_scene.cranked then
+        scene_manager.current_scene:cranked(change, acceleratedChange)
     end
 end
 
 function playdate.update()
-    current_scene:update()
+    scene_manager.current_scene:update()
 end
