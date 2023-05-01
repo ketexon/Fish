@@ -4,12 +4,13 @@
         {
             "label": "Compile Playdate",
             "type": "shell",
-            "command": "pdc -sdkpath $env:PlaydateSDK Source fish.pdx",
+            "command": "pdc -sdkpath \"${env:PlaydateSDK}\" Source fish.pdx",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+
         },
         {
             "label": "Run PlaydateSimulator",
