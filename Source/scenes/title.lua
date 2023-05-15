@@ -4,6 +4,7 @@ import "CoreLibs/ui"
 
 local math = import "utility/math"
 
+---@type Scene
 local title = {}
 
 local WIDTH <const> = 400
@@ -51,7 +52,7 @@ function title:update()
     self.text_position_y = math.min(self.text_position_y, self.text_start_position_y)
 
     if self.text_position_y + self.text_height < 0 then
-        self.scene_manager:change_scene(self.scene_manager.scenes.game)
+        self.scene_manager:transition_scene(self.scene_manager.scenes.game)
     end
 
     -- CRANK ALERT

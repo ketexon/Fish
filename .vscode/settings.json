@@ -9,5 +9,4 @@
 	"Lua.runtime.special": {
 		"import": "require"
 	},
-	"Lua.diagnostics.neededFileStatus": {"codestyle-check": "Any"}
 }
