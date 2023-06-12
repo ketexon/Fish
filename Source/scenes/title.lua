@@ -4,6 +4,7 @@ import "CoreLibs/ui"
 
 local math = import "utility/math"
 
+---@type Scene
 local title = {}
 
 local WIDTH <const> = 400
