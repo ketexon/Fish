@@ -50,24 +50,22 @@ function title:update()
     self.text_position_y += playdate.getCrankTicks(self.reel_speed)
     self.text_position_y = math.min(self.text_position_y, self.text_start_position_y)
 
-    if self.text_position_y + self.text_height < 0 then
-        self.scene_manager:change_scene(self.scene_manager.scenes.game)
+    if self.text_position_y + self.text_height + 4 < 0 then
+        self.scene_manager:transition_scene(self.scene_manager.scenes.game)
+    else
+        playdate.graphics.drawText(
+            "If the fish isn't hooked, you can't reel it in",
+            WIDTH/2 - self.text_width/2,
+            self.text_position_y
+        )
+        playdate.graphics.drawLine( WIDTH/2, 0,WIDTH/2, self.text_position_y )
+        self.hook:draw(WIDTH/2, self.text_position_y )
     end
 
     -- CRANK ALERT
     if self.playing_crank_animation then
         playdate.ui.crankIndicator:update()
     end
-
-
-    playdate.graphics.drawText(
-        "If the fish isn't hooked, you can't reel it in",
-        WIDTH/2 - self.text_width/2,
-        self.text_position_y
-    )
-
-    playdate.graphics.drawLine( WIDTH/2, 0,WIDTH/2, self.text_position_y )
-    self.hook:draw(WIDTH/2, self.text_position_y )
 
     playdate.timer.updateTimers()
 end

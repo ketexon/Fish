@@ -9,5 +9,5 @@ function playdate.cranked(change, acceleratedChange)
 end
 
 function playdate.update()
-    scene_manager.current_scene:update()
+    scene_manager:update()
 end
