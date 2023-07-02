@@ -3,7 +3,7 @@ import "CoreLibs/graphics"
 local dialogue_system = {}
 
 local TABLE_PADDING = 4
-local TEXT_PADDING = 2
+local TEXT_PADDING = 4
 local MAX_TEXT_WIDTH = 240 - 2 * TABLE_PADDING - 2 * TEXT_PADDING
 
 dialogue_system.States = {
@@ -37,7 +37,7 @@ function dialogue_system:update()
 			end
 		end
 	end
-	
+
 	if self.state ~= self.States.DISABLED then
 		-- draw
 		for i = 1, self.current_line do
@@ -47,7 +47,7 @@ function dialogue_system:update()
 			-- origin_x + text_width + 2 * TEXT_PADDING = 240 - TEXT_PADDING
 			-- origin_x = 240 - TEXT_PADDING - text_width - 2 * TEXT_PADDING
 			playdate.graphics.drawRect(
-				240 - TABLE_PADDING - text_width - 2 * TEXT_PADDING, 
+				240 - TABLE_PADDING - text_width - 2 * TEXT_PADDING,
 				140 + TABLE_PADDING,
 				text_width + 2 * TEXT_PADDING,
 				text_height + 2 * TEXT_PADDING
@@ -55,7 +55,7 @@ function dialogue_system:update()
 
 			playdate.graphics.drawTextInRect(
 				line,
-				240 - TABLE_PADDING - text_width + TEXT_PADDING, 140 + TABLE_PADDING  + TEXT_PADDING,
+				240 - TABLE_PADDING - text_width - TEXT_PADDING, 140 + TABLE_PADDING + TEXT_PADDING,
 				text_width, text_height
 			)
 		end
